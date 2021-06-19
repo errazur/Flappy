@@ -23,6 +23,8 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Random;
 
+import com.sun.jdi.LongValue;
+
 public class FlappyBird extends Application {
 	
 	private int APP_HEIGHT = 700;
@@ -31,13 +33,87 @@ public class FlappyBird extends Application {
     private boolean CLICKED, GAME_START, HIT_PIPE, GAME_OVER;
     private Bird bird;
     private ArrayList<tuyaux> tuyaux;
+    private LongValue startNanoTime;
+    private Sprite firstFloor, secondFloor, birdSprite;
+    private Text scoreLabel;
+    private GraphicsContext gc, birdGC;
+    private AnimationTimer timer;
+    private ImageView gameOver, startGame;
+    private Group root;
+    private double motionTime, elapsedTime;
     
     
 
 	@Override
 	public void start(Stage primaryStage) throws Exception {
 		// TODO Auto-generated method stub
+		primaryStage.setTitle("Flappy Bird");
+		primaryStage.setResizable(false);
 		
+		
+		
+		
+	}
+	
+	private void BirdHitFloor() {
+		
+	}
+	
+	private void stopescroll() {
+		for (tuyaux tuyau : tuyaux) {
+			tuyau.gettuyaux().setVelocity(0, 0);
+		}
+		firstFloor.setVelocity(0, 0);
+		secondFloor.setVelocity(0, 0);
+	}
+	
+	private void veriftuyscroll() {
+		if(tuyaux.size() > 0) {
+			Sprite t = tuyaux.get(tuyaux.size() - 1).gettuyaux();
+			if(t.getposX() == APP_WIDTH / 2 -80) {
+				settuy();
+			}
+			else if (t.getposX() <= -t.getwidth()) {
+				tuyaux.remove(0);
+				tuyaux.remove(0);
+			}
+		}
+		
+	}
+	
+	private void settuy() {
+		int height = randomtuyheight();
+		
+		tuyaux tuyau = new tuyaux(true,height);
+		tuyaux tuyau2 = new tuyaux(false, 425-height);
+		
+		tuyau.gettuyaux().setVelocity(-.4, 0);
+		tuyau2.gettuyaux().addVelocity(-.4, 0);
+		
+		tuyau.gettuyaux().draw(gc);
+		tuyau2.gettuyaux().draw(gc);
+		
+		tuyaux.addAll(Arrays.asList(tuyau,tuyau2));
+	}
+	
+	private int randomtuyheight() {
+		return (int) (Math.random() * (410 - 25) + 25);
+	}
+	
+	private void rendertuy() {
+		for (tuyaux tuyau : tuyaux) {
+			Sprite t = tuyau.gettuyaux();
+			t.draw(gc);
+			t.maj(5);
+		}
+	}
+	
+	public class LongValue{
+		public long value;
+		
+		public LongValue(long i) {
+			this.value=i;
+		}
 	}
 
 }

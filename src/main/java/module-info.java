@@ -6,6 +6,7 @@ module Projet_fx.Flappy {
 	requires jdk.javadoc;
 	requires persistence.api;
 	requires java.sql;
+	requires jdk.jdi;
 
     opens Projet_fx.Flappy to javafx.fxml;
     exports Projet_fx.Flappy;
