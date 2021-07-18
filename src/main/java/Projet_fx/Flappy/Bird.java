@@ -15,7 +15,7 @@ public class Bird {
     
     public Bird() {
     	bird = new Sprite();
-    	bird.resizeImage("images/bird1.png", BIRD_WIDTH, BIRD_HEIGHT);
+    	bird.resizeImage(getClass().getResource("images/bird1.png").toString(), BIRD_WIDTH, BIRD_HEIGHT);
     	bird.setPositionXY(locationX, locationY);
     	volanimation();
     }
@@ -24,15 +24,15 @@ public class Bird {
     //animation de vol en changeant les images
     public void volanimation() {
     	Sprite bird2 = new Sprite();
-    	bird2.resizeImage("images/bird3.png", BIRD_WIDTH, BIRD_HEIGHT);
+    	bird2.resizeImage(getClass().getResource("images/bird3.png").toString(), BIRD_WIDTH, BIRD_HEIGHT);
     	bird2.setPositionXY(locationX, locationY);
     	
     	Sprite bird3 = new Sprite();
-    	bird3.resizeImage("images/bird1.png", BIRD_WIDTH, BIRD_HEIGHT);
+    	bird3.resizeImage(getClass().getResource("images/bird1.png").toString(), BIRD_WIDTH, BIRD_HEIGHT);
     	bird3.setPositionXY(locationX, locationY);
     	
     	Sprite bird4 = new Sprite();
-    	bird4.resizeImage("images/bird2.png", BIRD_WIDTH, BIRD_HEIGHT);
+    	bird4.resizeImage(getClass().getResource("images/bird2.png").toString(), BIRD_WIDTH, BIRD_HEIGHT);
     	bird4.setPositionXY(locationX, locationY);
     	
     	vol.addAll(Arrays.asList(bird,bird2,bird3,bird4));

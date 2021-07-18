@@ -1,6 +1,6 @@
 package Projet_fx.Flappy;
 
-public class tuyaux {
+public class Tuyaux {
 	
 	private Sprite tuyaux;
 	private double localisationX;
@@ -8,9 +8,9 @@ public class tuyaux {
 	private double width;
     private double height;
     
-    public tuyaux(boolean isFaceup, double height) {
+    public Tuyaux(boolean isFaceup, double height) {
     	this.tuyaux = new Sprite();
-    	this.tuyaux.resizeImage(isFaceup ? "images/up_pipe.png" : "images/down_pipe.png",70, height);
+    	this.tuyaux.resizeImage(isFaceup ? getClass().getResource("images/up_pipe.png").toString() : getClass().getResource("images/down_pipe.png").toString(),70, height);
     	this.height = height;
     	this.width = 70;
     	this.localisationX = 400;

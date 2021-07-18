@@ -13,4 +13,5 @@ public class ScoreBoard {
 	public String toString() {
 		return String.format("%s - %d", pseudo,score);
 	}
+	
 }

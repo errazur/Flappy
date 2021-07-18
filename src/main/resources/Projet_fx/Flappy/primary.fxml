@@ -9,7 +9,7 @@
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.HBox?>
 
-<BorderPane fx:id="root" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: BLACk;" stylesheets="@style.css" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Projet_fx.Flappy.PrimaryController">
+<BorderPane fx:id="root" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: BLACK;" stylesheets="@style.css" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Projet_fx.Flappy.PrimaryController">
    <center>
       <ListView fx:id="listview" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER" />
    </center>
@@ -26,15 +26,17 @@
                   <Insets left="120.0" top="20.0" />
                </HBox.margin>
             </Button>
-            <ImageView fitHeight="69.0" fitWidth="97.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@images/bird2.png" />
-               </image>
-               <HBox.margin>
-                  <Insets left="30.0" top="10.0" />
-               </HBox.margin>
-            </ImageView>
          </children>
       </HBox>
    </bottom>
+   <right>
+      <ImageView fitHeight="69.0" fitWidth="97.0" pickOnBounds="true" preserveRatio="true" rotate="-25.0" BorderPane.alignment="CENTER">
+         <image>
+            <Image url="@images/bird2.png" />
+         </image>
+         <BorderPane.margin>
+            <Insets right="50.0" />
+         </BorderPane.margin>
+      </ImageView>
+   </right>
 </BorderPane>

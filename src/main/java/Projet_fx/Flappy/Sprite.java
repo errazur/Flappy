@@ -51,11 +51,16 @@ public class Sprite {
         this.velocityY = velocityY;
     }
     
-    //getter
+    //hitbox
     public Rectangle2D getBoundary() {
         return new Rectangle2D(positionX, positionY, width, height);
     }
     
+    public boolean intersectsSprite(Sprite s) {
+        return s.getBoundary().intersects(this.getBoundary());
+    }
+    
+    //getter
     public double getposX() {
     	return positionX;
     }
